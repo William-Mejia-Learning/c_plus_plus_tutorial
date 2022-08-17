@@ -12,6 +12,28 @@ using namespace std;
 #define PI 3.14159
 #define NEWLINE '\n'
 
+int addition (int a, int b){
+    int r;
+    r = a + b;
+    return r;
+}
+
+int subtraction(int a, int b){
+    int r;
+    r = a - b;
+    return r;
+}
+
+void printmessage (){
+    cout << "I'm a function!";
+}
+
+void duplicate (int& a, int& b, int& c){
+    a*=2;
+    b*=2;
+    c*=2;
+}
+
 int main() {
 //    cout
 //            << "Hello, World! ";
@@ -146,19 +168,138 @@ int main() {
 //    getline (cin, mystr);
 //    cout << "I like " << mystr << " too!\n";
 
-    string mystr;
-    float price=0;
-    int quantity=0;
+//    string mystr;
+//    float price=0;
+//    int quantity=0;
+//
+//    cout << "Enter price: ";
+//    getline (cin,mystr);
+//    stringstream(mystr) >> price;
+//    cout << "Enter quantity: ";
+//    getline (cin,mystr);
+//    stringstream(mystr) >> quantity;
+//    cout << "Total price: " << price*quantity << endl;
 
-    cout << "Enter price: ";
-    getline (cin,mystr);
-    stringstream(mystr) >> price;
-    cout << "Enter quantity: ";
-    getline (cin,mystr);
-    stringstream(mystr) >> quantity;
-    cout << "Total price: " << price*quantity << endl;
+//    int x = 99;
+
+//    if(x == 100){
+//        cout << "x is " << x;
+//    }
+//    else{
+//        cout << "x is not 100";
+//    }
+
+//    if(x > 0)
+//        cout << "x is positive";
+//    else if( x < 0)
+//        cout << "x is negative";
+//    else
+//        cout << "x ix 0";
+
+//    int n = 10;
+//
+//    while(n > 0){
+//        cout << n << ", ";
+//        --n;
+//    }
+//    cout << "liftoff! \n";
+
+//    string str;
+//    do {
+//        cout << "Enter text: ";
+//        getline(cin, str);
+//        cout << "You entered " << str << '\n';
+//    } while (str != "goodbye");
+
+
+//    for(int n=10; n > 0; n--){
+//        if(n > 1){
+//            cout << n << ", ";
+//        }
+//        if(n == 1){
+//            cout << n;
+//        }
+//    }
+//    cout << "liftoff! \n";
+
+//    string str ("hello!");
+
+//    for (char c : str){
+//        cout << "[" << c << "]";
+//    }
+//    cout << '\n';
+
+//    for (auto c : str){
+//        cout << "[" << c << "]";
+//    }
+//    cout << '\n';
+
+//    for(int n = 10; n > 0; n--){
+//        cout << n << ", ";
+//        if(n == 3){
+//            cout << "Countdown aborted!";
+//            break;
+//        }
+//    }
+
+//    for(int n = 10; n > 0; n--){
+//        if( n == 5) continue;
+//        cout << n << ", ";
+//    }
+//
+//    cout << "liftoff!\n";
+
+//    int n =10;
+//
+//    mylabel:
+//    cout << n << ", ";
+//    n--;
+//    if(n > 0) goto mylabel;
+//    cout << "liftoff!\n";
+
+//    int x = 1;
+
+//    switch (x) {
+//        case 1:
+//            cout << "x is 1";
+//            break;
+//        case 2:
+//            cout << "x is 2";
+//            break;
+//        default:
+//            cout << "value of x unknown";
+//    }
+
+//    int z;
+//    z = addition(5,3);
+//    cout << "The result is " << z;
+
+//    int y;
+//    y = subtraction(7, 2);
+//    cout << y << endl;
+//
+//    y = 4 + subtraction(7,2);
+//
+//    cout << y;
+
+//    printmessage();
+
+//    int num = true + 1;
+//    cout << num;
+
+    int x = 1, y= 3, z= 7;
+    duplicate(x,y,z);
+
+    cout << "x=" << x <<", y=" << y << ", z=" << z << endl;
+
+    cout << addition(x, y);
+
 
     // terminate the program
     return 0;
 
+
+
+
 }
+
