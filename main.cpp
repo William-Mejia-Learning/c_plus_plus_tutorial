@@ -34,6 +34,27 @@ void duplicate (int& a, int& b, int& c){
     c*=2;
 }
 
+string concatenate(string& a, string& b){
+    return a + b;
+}
+
+int divide (int a, int b=2){
+    int r;
+    r = a/b;
+    return (r);
+}
+
+void odd (int x);
+
+void even (int x);
+
+long factorial (long a){
+    if(a > 1)
+        return (a * factorial(a - 1));
+    else
+        return 1;
+}
+
 int main() {
 //    cout
 //            << "Hello, World! ";
@@ -287,19 +308,46 @@ int main() {
 //    int num = true + 1;
 //    cout << num;
 
-    int x = 1, y= 3, z= 7;
-    duplicate(x,y,z);
+//    int x = 1, y= 3, z= 7;
+//    duplicate(x,y,z);
+//
+//    cout << "x=" << x <<", y=" << y << ", z=" << z << endl;
+//
+//    cout << addition(x, y);
 
-    cout << "x=" << x <<", y=" << y << ", z=" << z << endl;
+//    string x = "hello ";
+//    string y = "world";
+//    cout << concatenate(x,y);
 
-    cout << addition(x, y);
+//    cout << divide(12) << '\n';
+//    cout << divide(20, 4) << '\n';
+
+//    int i;
+//
+//    do {
+//        cout << "PLease enter number (0 to exit)";
+//        cin >> i;
+//        odd(i);
+//    } while (i != 0);
+
+
+//    long number = 9;
+//
+//    cout << number << "! = " << factorial(number);
+
 
 
     // terminate the program
     return 0;
+}
 
+void odd (int x){
+    if((x % 2) != 0) cout << "It is odd. \n";
+    else even(x);
+}
 
-
-
+void even( int x){
+    if((x % 2) == 0) cout << "It is even. \n";
+    else odd(x);
 }
 
