@@ -88,6 +88,46 @@ T fixed_multiply (T val){
     return val * N;
 }
 
+//int foo; // global variable
+
+//int some_function () {
+//    int bar; // local variable
+//    bar = 0;
+//}
+
+//int other_function (){
+//    foo = 1; // ok: foo is a global variable
+////    bar = 2; // wrong: bar is visible from this function
+//}
+
+//int some_function(){
+//    int x;
+//    x = 0;
+//    double x; // wrong: name already used in this scope
+//    x = 0.00;
+//}
+
+namespace foo{
+    int value() { return 5; }
+}
+
+namespace bar {
+    const double pi = 3.1416;
+    double value() { return 2 * pi; }
+}
+
+namespace first {
+    int x = 5;
+    int y = 10;
+}
+
+namespace second {
+    double x = 3.1416;
+    double y = 2.7183;
+}
+
+//int x;
+
 int main() {
 //    cout
 //            << "Hello, World! ";
@@ -390,8 +430,50 @@ int main() {
 //    else
 //        cout << "x and y are not equal\n";
 
-    cout << fixed_multiply<int, 2>(10) << endl;
-    cout << fixed_multiply<int, 3>(10) << endl;
+//    cout << fixed_multiply<int, 2>(10) << endl;
+//    cout << fixed_multiply<int, 3>(10) << endl;
+
+//    int x = 10;
+//    int y = 20;
+//    {
+//        int x; //ok, inner scope.
+//        x = 50; // sets value to inner x
+//        y = 50; // sets value to (outer) y
+//        cout << "inner block: \n";
+//        cout << "x: " << x << endl;
+//        cout << "y: " << y << endl;
+//    }
+//    cout << "outer block: \n";
+//    cout << "x: " << x << '\n';
+//    cout << "y: " << y << '\n';
+
+//    cout << foo :: value() << '\n';
+//    cout << bar :: value() << '\n';
+//    cout << bar :: pi << '\n';
+
+//    using namespace first;
+////    using first::x;
+////    using second::y;
+//
+//    cout << x << endl;
+//    cout << y << endl;
+////    cout << first::y << endl;
+//    cout << second::x << endl;
+//    cout << second::y << endl;
+
+//    {
+//        using namespace first;
+//        cout << x << endl;
+//    }
+//    {
+//        using namespace second;
+//        cout << x << endl;
+//    }
+
+//    int y;
+//    cout << x << '\n';
+//    cout << y << '\n';
+
 
     // terminate the program
     return 0;
