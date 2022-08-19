@@ -537,13 +537,35 @@ int main() {
 //    for (int elem : myarray)
 //        cout << elem << '\n';
 
-    array<int,3> myarray {10,20,30};
+//    array<int,3> myarray {10,20,30};
+//
+//    for (int i=0; i<myarray.size(); ++i)
+//        ++myarray[i];
+//
+//    for (int elem : myarray)
+//        cout << elem << '\n';
 
-    for (int i=0; i<myarray.size(); ++i)
-        ++myarray[i];
+//    char myword[] = { 'H', 'e', 'l', 'l', 'o', '\0' };
+//    char myword[] = { "Hello" };
+//    cout << num;
 
-    for (int elem : myarray)
-        cout << elem << '\n';
+//    cout << "the result is: " << myword;
+
+//    char question1[] = "What is your name? ";
+//    string question2 = "Where do you live? ";
+//    char answer1 [80];
+//    string answer2;
+//    cout << question1;
+//    cin >> answer1;
+//    cout << question2;
+//    cin >> answer2;
+//    cout << "Hello, " << answer1;
+//    cout << " from " << answer2 << "!\n";
+
+    char myntcs[] = "some text";
+    string mystring = myntcs;  // convert c-string to string
+    cout << mystring << endl;          // printed as a library string
+    cout << mystring.c_str();
 
 
     // terminate the program
