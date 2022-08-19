@@ -16,17 +16,17 @@ using namespace std;
 #define WIDTH 5
 #define HEIGHT 3
 
-int addition(int a, int b) {
-    int r;
-    r = a + b;
-    return r;
-}
-
-int subtraction(int a, int b) {
-    int r;
-    r = a - b;
-    return r;
-}
+//int addition(int a, int b) {
+//    int r;
+//    r = a + b;
+//    return r;
+//}
+//
+//int subtraction(int a, int b) {
+//    int r;
+//    r = a - b;
+//    return r;
+//}
 
 void printmessage() {
     cout << "I'm a function!";
@@ -144,6 +144,47 @@ T fixed_multiply(T val) {
 //        cout << arg[n] << ' ';
 //    cout << '\n';
 //}
+
+void increment_all (int* start, int* stop)
+{
+    int * current = start;
+    while (current != stop) {
+        ++(*current);  // increment value pointed
+        ++current;     // increment pointer
+    }
+}
+
+void print_all (const int* start, const int* stop)
+{
+    const int * current = start;
+    while (current != stop) {
+        cout << *current << '\n';
+        ++current;     // increment pointer
+    }
+}
+
+void increase (void* data, int psize)
+{
+    if ( psize == sizeof(char) )
+    { char* pchar; pchar=(char*)data; ++(*pchar); }
+    else if (psize == sizeof(int) )
+    { int* pint; pint=(int*)data; ++(*pint); }
+}
+
+using namespace std;
+
+int addition (int a, int b)
+{ return (a+b); }
+
+int subtraction (int a, int b)
+{ return (a-b); }
+
+int operation (int x, int y, int (*functocall)(int,int))
+{
+    int g;
+    g = (*functocall)(x,y);
+    return (g);
+}
 
 
 int main() {
@@ -562,10 +603,105 @@ int main() {
 //    cout << "Hello, " << answer1;
 //    cout << " from " << answer2 << "!\n";
 
-    char myntcs[] = "some text";
-    string mystring = myntcs;  // convert c-string to string
-    cout << mystring << endl;          // printed as a library string
-    cout << mystring.c_str();
+//    char myntcs[] = "some text";
+//    string mystring = myntcs;  // convert c-string to string
+//    cout << mystring << endl;          // printed as a library string
+//    cout << mystring.c_str();
+
+
+//    & is the address-of operator, and can be read simply as "address of"
+//    * is the dereference operator, and can be read as "value pointed to by"
+
+//    int myvar = 25;
+//    int * foo = &myvar;
+//     cout << foo[0];
+
+//    int firstvalue, secondvalue;
+//    int * mypointer;
+//
+//    mypointer = &firstvalue;
+//    *mypointer = 10;
+//    mypointer = &secondvalue;
+//    *mypointer = 20;
+//    cout << "firstvalue is " << firstvalue << '\n';
+//    cout << "secondvalue is " << secondvalue << '\n';
+
+//    int firstvalue = 5, secondvalue = 15;
+//    int * p1, *p2;
+//
+//    p1 = &firstvalue; // p1 = address of firstvalue
+//    p2 = &secondvalue; // p2 = address of seconvalue
+//    *p1 = 10; // value pointed to by p1 = 10
+//    *p2 = *p1; // value pointed to by p2 = value pointed to by p1
+//    p1 = p2; // p1 = p2 (value of pointer is copied)
+//    *p1 = 20; // value pointed to by p1 = 20
+
+//    cout << "firstvalue is " << firstvalue << '\n';
+//    cout << "secondvalue is " << secondvalue << '\n';
+
+
+//    int numbers[5];
+//    int * p;
+//    p = numbers;  *p = 10;
+//    p++;  *p = 20;
+//    p = &numbers[2];  *p = 30;
+//    p = numbers + 3;  *p = 40;
+//    p = numbers;  *(p+4) = 50;
+//    for (int n=0; n<5; n++)
+//        cout << numbers[n] << ", ";
+
+//    *p++   // same as *(p++): increment pointer, and dereference unincremented address
+//    *++p   // same as *(++p): increment pointer, and dereference incremented address
+//    ++*p   // same as ++(*p): dereference pointer, and increment the value it points to
+//    (*p)++ // dereference pointer, and post-increment the value it points to
+
+//    int numbers[] = {10,20,30};
+//    increment_all (numbers,numbers+3);
+//    print_all (numbers,numbers+3);
+
+//    int x;
+//    int *       p1 = &x;  // non-const pointer to non-const int
+//    const int *       p2 = &x;  // non-const pointer to const int
+//    int * const p3 = &x;  // const pointer to non-const int
+//    const int * const p4 = &x;  // const pointer to const int
+
+//    const int * p2a = &x;  //      non-const pointer to const int
+//    int const * p2b = &x;  // also non-const pointer to const int
+
+
+//
+//    const char * foo = "hello";
+//
+//    cout << foo << endl;
+//
+//    cout << *(foo + 4) << endl;
+//    cout << foo[4] << endl;
+
+//    char a;
+//    char * b;
+//    char ** c;
+//    a = 'z';
+//    b = &a;
+//    c = &b;
+//
+//    cout << a << " " << endl;
+//    cout << b << endl;
+
+//    char a = 'x';
+//    int b = 1602;
+//    increase (&a,sizeof(a));
+//    increase (&b,sizeof(b));
+//    cout << a << ", " << b << '\n';
+
+    int m,n;
+    int (*minus)(int,int) = subtraction;
+
+    m = operation (7, 5, addition);
+    n = operation (20, m, minus);
+//    cout << m << endl;
+    cout <<n;
+
+
 
 
     // terminate the program
