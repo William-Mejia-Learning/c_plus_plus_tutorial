@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <array>
 
 using namespace std;
 
@@ -11,6 +12,9 @@ using namespace std;
 
 #define PI 3.14159
 #define NEWLINE '\n'
+
+#define WIDTH 5
+#define HEIGHT 3
 
 int addition(int a, int b) {
     int r;
@@ -63,28 +67,28 @@ double operate(double a, double b) {
     return (a / b);
 }
 
-int sum(int a, int b){
+int sum(int a, int b) {
     return a + b;
 }
 
-double sum (double a, double b){
+double sum(double a, double b) {
     return a + b;
 }
 
-template <class T>
-T sum(T a, T b){
+template<class T>
+T sum(T a, T b) {
     T result;
-    result =  a + b;
+    result = a + b;
     return result;
 }
 
-template <class T, class U>
-bool are_equal (T a, U b){
+template<class T, class U>
+bool are_equal(T a, U b) {
     return (a == b);
 }
 
-template <class T, int N>
-T fixed_multiply (T val){
+template<class T, int N>
+T fixed_multiply(T val) {
     return val * N;
 }
 
@@ -107,26 +111,40 @@ T fixed_multiply (T val){
 //    x = 0.00;
 //}
 
-namespace foo{
-    int value() { return 5; }
-}
+//namespace foo{
+//    int value() { return 5; }
+//}
 
-namespace bar {
-    const double pi = 3.1416;
-    double value() { return 2 * pi; }
-}
-
-namespace first {
-    int x = 5;
-    int y = 10;
-}
-
-namespace second {
-    double x = 3.1416;
-    double y = 2.7183;
-}
+//namespace bar {
+//    const double pi = 3.1416;
+//    double value() { return 2 * pi; }
+//}
+//
+//namespace first {
+//    int x = 5;
+//    int y = 10;
+//}
+//
+//namespace second {
+//    double x = 3.1416;
+//    double y = 2.7183;
+//}
 
 //int x;
+
+//int foo[] = {16, 2, 77, 40, 12071};
+//
+//int n, result = 0;
+
+//int jimmy[HEIGHT][WIDTH];
+//int n, m;
+
+//void printarray (int arg[], int length){
+//    for (int n = 0; n < length; ++n)
+//        cout << arg[n] << ' ';
+//    cout << '\n';
+//}
+
 
 int main() {
 //    cout
@@ -473,6 +491,59 @@ int main() {
 //    int y;
 //    cout << x << '\n';
 //    cout << y << '\n';
+
+//    int foo [] {16, 2, 77, 40, 12071};
+//
+//    int bar [5] = {10, 20, 30};
+//
+//    int baz [5] = {};
+//
+//    int foo[5];
+//    foo[2] = 75;
+//
+//
+//
+//    int x = foo[2];
+
+//    for(n=0; n<5 ; ++n){
+//        result += foo[n];
+//    }
+//    cout << result;
+
+//    char century [100][365][24][60][60];
+//
+//    cout << century;
+
+//    int jimmy [5][5]; //is equivalent to
+//    int jimmy[15]; // (3 * 5 = 15)
+
+
+
+//    for (n = 0; n < HEIGHT; n++)
+//        for (m = 0; m < WIDTH; m++) {
+//            jimmy[n][m] = (n + 1) * (m + 1);
+//        }
+
+//    int firstarray[] = {5, 10, 15};
+//    int secondarray[] = {2, 4, 6, 8, 10};
+//    printarray (firstarray,3);
+//    printarray (secondarray,5);
+
+//    int myarray[3] = {10,20,30};
+//
+//    for (int i=0; i<3; ++i)
+//        ++myarray[i];
+//
+//    for (int elem : myarray)
+//        cout << elem << '\n';
+
+    array<int,3> myarray {10,20,30};
+
+    for (int i=0; i<myarray.size(); ++i)
+        ++myarray[i];
+
+    for (int elem : myarray)
+        cout << elem << '\n';
 
 
     // terminate the program
