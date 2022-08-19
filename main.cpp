@@ -12,47 +12,80 @@ using namespace std;
 #define PI 3.14159
 #define NEWLINE '\n'
 
-int addition (int a, int b){
+int addition(int a, int b) {
     int r;
     r = a + b;
     return r;
 }
 
-int subtraction(int a, int b){
+int subtraction(int a, int b) {
     int r;
     r = a - b;
     return r;
 }
 
-void printmessage (){
+void printmessage() {
     cout << "I'm a function!";
 }
 
-void duplicate (int& a, int& b, int& c){
-    a*=2;
-    b*=2;
-    c*=2;
+void duplicate(int &a, int &b, int &c) {
+    a *= 2;
+    b *= 2;
+    c *= 2;
 }
 
-string concatenate(string& a, string& b){
+string concatenate(string &a, string &b) {
     return a + b;
 }
 
-int divide (int a, int b=2){
+int divide(int a, int b = 2) {
     int r;
-    r = a/b;
+    r = a / b;
     return (r);
 }
 
-void odd (int x);
+void odd(int x);
 
-void even (int x);
+void even(int x);
 
-long factorial (long a){
-    if(a > 1)
+long factorial(long a) {
+    if (a > 1)
         return (a * factorial(a - 1));
     else
         return 1;
+}
+
+int operate(int a, int b) {
+    return (a * b);
+}
+
+double operate(double a, double b) {
+    return (a / b);
+}
+
+int sum(int a, int b){
+    return a + b;
+}
+
+double sum (double a, double b){
+    return a + b;
+}
+
+template <class T>
+T sum(T a, T b){
+    T result;
+    result =  a + b;
+    return result;
+}
+
+template <class T, class U>
+bool are_equal (T a, U b){
+    return (a == b);
+}
+
+template <class T, int N>
+T fixed_multiply (T val){
+    return val * N;
 }
 
 int main() {
@@ -335,19 +368,42 @@ int main() {
 //
 //    cout << number << "! = " << factorial(number);
 
+//    int x = 5, y = 2;
+//    double n = 5.0, m = 2.0;
+//
+//    cout << operate(x, y) << endl;
+//    cout << operate(n, m) << endl;
 
+
+//    cout << sum(10, 20) << endl;
+//    cout << sum(1.0, 1.5) << endl;
+
+//    int i=5, j=6, k;
+//    double f=2.0, g=0.5, h;
+//    k=sum<int>(i,j);
+//    h=sum<double>(f,g);
+//    cout << k << '\n';
+//    cout << h << '\n';
+
+//    if (are_equal(10,10.0))
+//        cout << "x and y are equal\n";
+//    else
+//        cout << "x and y are not equal\n";
+
+    cout << fixed_multiply<int, 2>(10) << endl;
+    cout << fixed_multiply<int, 3>(10) << endl;
 
     // terminate the program
     return 0;
 }
 
-void odd (int x){
-    if((x % 2) != 0) cout << "It is odd. \n";
+void odd(int x) {
+    if ((x % 2) != 0) cout << "It is odd. \n";
     else even(x);
 }
 
-void even( int x){
-    if((x % 2) == 0) cout << "It is even. \n";
+void even(int x) {
+    if ((x % 2) == 0) cout << "It is even. \n";
     else odd(x);
 }
 
