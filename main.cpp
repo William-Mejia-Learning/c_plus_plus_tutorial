@@ -145,44 +145,44 @@ T fixed_multiply(T val) {
 //    cout << '\n';
 //}
 
-void increment_all (int* start, int* stop)
-{
-    int * current = start;
+void increment_all(int *start, int *stop) {
+    int *current = start;
     while (current != stop) {
         ++(*current);  // increment value pointed
         ++current;     // increment pointer
     }
 }
 
-void print_all (const int* start, const int* stop)
-{
-    const int * current = start;
+void print_all(const int *start, const int *stop) {
+    const int *current = start;
     while (current != stop) {
         cout << *current << '\n';
         ++current;     // increment pointer
     }
 }
 
-void increase (void* data, int psize)
-{
-    if ( psize == sizeof(char) )
-    { char* pchar; pchar=(char*)data; ++(*pchar); }
-    else if (psize == sizeof(int) )
-    { int* pint; pint=(int*)data; ++(*pint); }
+void increase(void *data, int psize) {
+    if (psize == sizeof(char)) {
+        char *pchar;
+        pchar = (char *) data;
+        ++(*pchar);
+    }
+    else if (psize == sizeof(int)) {
+        int *pint;
+        pint = (int *) data;
+        ++(*pint);
+    }
 }
 
 using namespace std;
 
-int addition (int a, int b)
-{ return (a+b); }
+int addition(int a, int b) { return (a + b); }
 
-int subtraction (int a, int b)
-{ return (a-b); }
+int subtraction(int a, int b) { return (a - b); }
 
-int operation (int x, int y, int (*functocall)(int,int))
-{
+int operation(int x, int y, int (*functocall)(int, int)) {
     int g;
-    g = (*functocall)(x,y);
+    g = (*functocall)(x, y);
     return (g);
 }
 
@@ -693,16 +693,46 @@ int main() {
 //    increase (&b,sizeof(b));
 //    cout << a << ", " << b << '\n';
 
-    int m,n;
-    int (*minus)(int,int) = subtraction;
+//    int m,n;
+//    int (*minus)(int,int) = subtraction;
+//
+//    m = operation (7, 5, addition);
+//    n = operation (20, m, minus);
+////    cout << m << endl;
+//    cout <<n;
 
-    m = operation (7, 5, addition);
-    n = operation (20, m, minus);
-//    cout << m << endl;
-    cout <<n;
+//    int * foo;
+////    foo = new int[5]; // if allocation fails, an exception is thrown
+//
+//    foo = new (nothrow) int[5];
+//
+//    if(foo = nullptr){
+//        //error assigning memory
+//    }
+//
+//
+//    cout << foo[2];
+//
+//    delete foo;
+//    delete [] foo;
 
-
-
+    int i, n;
+    int *p;
+    cout << "How many numbers would you like to type?";
+    cin >> i;
+    p = new(nothrow) int[1];
+    if (p == nullptr)
+        cout << "Error: memory could not be allocated";
+    else {
+        for (n = 0; n < i; n++) {
+            cout << "Enter number: ";
+            cin >> p[n];
+        }
+        cout << "You have entered: ";
+        for (n = 0; n < i; n++)
+            cout << p[n] << ", ";
+        delete[] p;
+    }
 
     // terminate the program
     return 0;
