@@ -166,8 +166,7 @@ void increase(void *data, int psize) {
         char *pchar;
         pchar = (char *) data;
         ++(*pchar);
-    }
-    else if (psize == sizeof(int)) {
+    } else if (psize == sizeof(int)) {
         int *pint;
         pint = (int *) data;
         ++(*pint);
@@ -185,6 +184,13 @@ int operation(int x, int y, int (*functocall)(int, int)) {
     g = (*functocall)(x, y);
     return (g);
 }
+
+struct movies_t {
+    string title;
+    int year;
+} mine, yours, theirs;
+
+void printmovie(movies_t movie);
 
 
 int main() {
@@ -716,26 +722,53 @@ int main() {
 //    delete foo;
 //    delete [] foo;
 
-    int i, n;
-    int *p;
-    cout << "How many numbers would you like to type?";
-    cin >> i;
-    p = new(nothrow) int[1];
-    if (p == nullptr)
-        cout << "Error: memory could not be allocated";
-    else {
-        for (n = 0; n < i; n++) {
-            cout << "Enter number: ";
-            cin >> p[n];
-        }
-        cout << "You have entered: ";
-        for (n = 0; n < i; n++)
-            cout << p[n] << ", ";
-        delete[] p;
-    }
+//    int i, n;
+//    int *p;
+//    cout << "How many numbers would you like to type?";
+//    cin >> i;
+//    p = new(nothrow) int[1];
+//    if (p == nullptr)
+//        cout << "Error: memory could not be allocated";
+//    else {
+//        for (n = 0; n < i; n++) {
+//            cout << "Enter number: ";
+//            cin >> p[n];
+//        }
+//        cout << "You have entered: ";
+//        for (n = 0; n < i; n++)
+//            cout << p[n] << ", ";
+//        delete[] p;
+//    }
+
+
+    string mystr;
+
+    mine.title = "2001 A Space Odyssey";
+    mine.year = 1968;
+
+    cout << "Enter title: ";
+    getline(cin, yours.title);
+    cout << "Enter year: ";
+    getline(cin, mystr);
+    stringstream(mystr) >> yours.year;
+
+    theirs.title = "Matrix";
+    theirs.year = 1999;
+
+    cout << "My favorite movie is:\n ";
+    printmovie(mine);
+    cout << "And yours is:\n ";
+    printmovie(yours);
+
+    printmovie(theirs);
 
     // terminate the program
     return 0;
+}
+
+void printmovie (movies_t movie) {
+    cout << movie.title;
+    cout << " (" << movie.year << ")\n";
 }
 
 void odd(int x) {
